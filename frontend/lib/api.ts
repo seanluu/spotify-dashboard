@@ -10,7 +10,6 @@ export const api = axios.create({
   },
 });
 
-// Request interceptor to add auth token
 api.interceptors.request.use(
   (config) => {
     const token = Cookies.get('spotify_access_token');
@@ -24,12 +23,12 @@ api.interceptors.request.use(
   }
 );
 
-// Simple response interceptor - just handle 401s by redirecting to login
+// handle 401s by redirecting to login
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Token expired, redirect to login
+      // token expired, redirect to login
       Cookies.remove('spotify_access_token');
       window.location.href = '/';
     }
