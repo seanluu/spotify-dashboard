@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { Header } from './Header';
 import { User } from '@/types';
+import { TopArtists } from './TopArtists';
+import { TopGenres } from './TopGenres';
+import { TopTracks } from './TopTracks';
 
 interface DashboardProps {
   user: User;
@@ -66,6 +69,17 @@ export function Dashboard({ user }: DashboardProps) {
         </div>
 
         <div className="space-y-8">
+          {activeTab === 'tracks' && (
+            <TopTracks timeRange={timeRange} />
+          )}
+          
+          {activeTab === 'artists' && (
+            <TopArtists timeRange={timeRange} />
+          )}
+          
+          {activeTab === 'genres' && (
+            <TopGenres timeRange={timeRange} />
+          )}
         </div>
       </div>
     </div>
