@@ -27,7 +27,7 @@ export function TopArtists({ timeRange }: TopArtistsProps) {
           <h2 className="text-heading">🎤 Top Artists</h2>
         </div>
       
-      <div className="grid-responsive">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {artists.map((artist, index) => (
           <div
             key={artist.id}
@@ -38,7 +38,7 @@ export function TopArtists({ timeRange }: TopArtistsProps) {
               <img
                 src={artist.images[1]?.url || artist.images[0]?.url}
                 alt={artist.name}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               
               <div className="absolute top-2 left-2">

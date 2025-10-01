@@ -33,7 +33,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000")); // only allow backend reqs from our frontend localhost:3000, otherwise we reject them
+        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:3000", "http://127.0.0.1:3000")); // allow backend reqs from both localhost and 127.0.0.1
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // allows these specific HTTP methods from our frontend
         // (i.e, "GET" for fetching data (songs), "POST" for creating data (playlists), "PUT" for updating data (user prefs), "DELETE" for removing tracks, "OPTIONS" for preflight reqs)
         configuration.setAllowedHeaders(Arrays.asList("*")); // allows all headers with *, so flexibile for diff types of reqs like Accept or Authorization

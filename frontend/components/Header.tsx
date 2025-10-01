@@ -21,10 +21,17 @@ export function Header({ user }: HeaderProps) {
           </div>
           
           <div className="flex items-center space-x-4">
-            <span className="text-sm text-white">{user.display_name}</span>
+            <div className="flex items-center space-x-3">
+              <img
+                src={user.images[0]?.url || '/default-avatar.svg'}
+                alt={user.display_name}
+                className="w-8 h-8 rounded-full object-cover"
+              />
+              <span className="text-sm text-white font-medium">{user.display_name}</span>
+            </div>
             <button
               onClick={logout}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-400 hover:text-white transition-colors text-sm"
             >
               Logout
             </button>

@@ -29,4 +29,5 @@ export interface GenreData {
   name: string;
   count: number;
   percentage: number;
+  [key: string]: any;
 }
